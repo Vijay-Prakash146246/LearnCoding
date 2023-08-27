@@ -160,3 +160,76 @@ class Test4
 		}
 	}
 }
+
+
+//#3 Java class concept
+//operator overloading
+class Testa
+{
+	int a = 20;
+	static int temp=98;
+	int b;
+	static int z;
+	public static void main(String[]args)
+	{
+		//int x;
+		System.out.println(10+12);
+		System.out.println("Vision"+12);
+		System.out.println(temp);
+		Testa t = new Testa();
+		System.out.println(t.a);
+		t.ma();
+		System.out.println(t.b);
+		System.out.println(Testa.z);
+		//variable x might not have been initialized
+		//	System.out.println(x);
+	}
+	void ma()
+	{
+		System.out.println(a); 
+		System.out.println(Testa.temp);
+	}
+}
+class Z1
+{
+	String name;
+}
+class A1
+{
+	int a=10;
+	static int b=20;
+	static void m2()
+	{
+		System.out.println("M2 method ");
+	}
+	A1 m1(Z1 z)
+	{
+		System.out.println("m1 method");
+		return this ;
+	}
+	public static void main(String[]args)
+	{
+		A1 a1 = new A1();
+		System.out.println(a1.a);
+		System.out.println(a1.b);
+		a1.a=100;
+		a1.b=200;
+		System.out.println(a1.a);
+		System.out.println(a1.b);
+		A1 a2 = new A1();
+		System.out.println(a2.a);
+		System.out.println(a2.b);
+		a2.b=2000;
+		A1 a3 = new A1();
+		System.out.println(a3.a);
+		System.out.println(a3.b);
+		//System.out.println(A1.	m2());
+		//error: 'void' type not allowed here
+
+		Z1 z = new Z1();
+		z.name="Niraj";
+		A1 a = a3.m1(z);
+	System.out.println("return value="+a);
+	System.out.println("return value="+z.name);
+	}
+	}
