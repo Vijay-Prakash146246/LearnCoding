@@ -6,6 +6,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import java.util.List;
+import java.util.Optional;
+
 @SpringBootApplication
 public class Lec8BootJpaExampleApplication
 {
@@ -22,8 +25,38 @@ public class Lec8BootJpaExampleApplication
 		user1.setName("Vijay Prakash");
 		user1.setCity("Nawada");
 		user1.setStatus("I am a programmer");
+		//saving single user
 		repository1.save(user1);
+		System.out.println("Saved User : "+user1);
+		//saving single user
 		repository1.save(user);
+		System.out.println("Saved User : "+user);
+
+
+
+		//L13 CRUD Operation using JPA and Spring Boot
+		//save multiple object
+		List<User>users=List.of(user1,user);
+		Iterable<User>result = repository1.saveAll(users);
+		result.forEach(
+				user2 -> {
+					System.out.println(user2);
+				}
+		);
+
+
+		//update the user of id 2
+		Optional<User> user2 = repository1.findById(2);
+		user2.get().setName("Amit Kumar Singh");
+		repository1.save(user2.get());
+		System.out.println(user2.get());
+
+		//get the data
+		List<User> users1= repository1.findAll();
+		users1.forEach(System.out::println);
+
+		//delete data
+		repository1.deleteById(1);
 	}
 
 }
