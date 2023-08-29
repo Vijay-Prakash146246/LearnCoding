@@ -2,8 +2,6 @@ package com.Lec8.Boot.Jpa.Example.repository;
 
 import com.Lec8.Boot.Jpa.Example.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
@@ -18,9 +16,9 @@ public interface UserRepository extends JpaRepository<User,Integer>
     public List<User> findByNameStartingWith(String name);
    public List<User> findByNameEndingWith(String name);
     public List<User> findByNameContaining(String name);
-//    public List<User> findByNameLike(String name);
-//    public List<User> findByAgeLessThan(int age);
-//    public List<User> findByAgeGreaterThanEqual(int age);
-//    public List<User> findByAgeIn(Collection<Integer> ages);
-//    public List<User> findByNameOrderByAgeAsc(String name);
+    public List<User> findByNameLike(String name); //not working
+    public List<User> findByAgeLessThan(int age);
+    public List<User> findByAgeGreaterThanEqual(int age);
+    public List<User> findByAgeIn(Collection<Integer> ages);
+    public List<User> findByNameOrderByAgeAsc(String name);
 }
