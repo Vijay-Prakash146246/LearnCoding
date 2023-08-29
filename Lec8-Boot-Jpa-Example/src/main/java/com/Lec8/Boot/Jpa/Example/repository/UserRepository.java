@@ -2,6 +2,8 @@ package com.Lec8.Boot.Jpa.Example.repository;
 
 import com.Lec8.Boot.Jpa.Example.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -50,5 +52,19 @@ public interface UserRepository extends JpaRepository<User,Integer>
 //    List<User> findByJoiningDateBefore(LocalDate date);
  //   List<User> findByStartDateBetween(LocalDate startDate, LocalDate endDate);
 
+
+    //L15 Executing JPQL and Native Queries with Spring Data JPA
+    //@Query JPQL , native Query
+    @Query("select u from User u")
+    public List<User>getAllUser();
+    //example of parametrized Query
+    @Query("select u from User u WHERE u.name= :nam")
+    public List<User>getAllUserByName(@Param("nam") String name);
+    @Query("select u from User u WHERE u.name= :nam and u.city=:city")
+    public List<User>getAllUserByNameAndCity(@Param("nam") String name,@Param("city") String city);
+
+    //native query
+    @Query(value = "select * from user ",nativeQuery = true )
+    public  List<User> getUsers();
 
 }
