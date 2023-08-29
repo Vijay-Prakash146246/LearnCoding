@@ -16,20 +16,22 @@ public class Lec8BootJpaExampleApplication
 	{
 		ApplicationContext context= SpringApplication.run(Lec8BootJpaExampleApplication.class, args);
 		UserRepository repository1 = context.getBean(UserRepository.class);
-//		User user=new User();
-//		user.setName("Vijay Prakash Singh");
-//		user.setCity("Nawada , Bihar");
-//		user.setStatus("I am java programmer");
-//
+		User user=new User();
+		user.setName("Ankit Kumar");
+		user.setCity("Nalanda");
+		user.setStatus("I am Python programmer");
+		user.setAge(25);
+////
 //		User user1=new User();
 //		user1.setName("Vijay Prakash");
 //		user1.setCity("Nawada");
 //		user1.setStatus("I am a programmer");
-//		//saving single user
+//		user1.setAge(45);
+////		//saving single user
 //		repository1.save(user1);
 //		System.out.println("Saved User : "+user1);
-//		//saving single user
-//		repository1.save(user);
+////		//saving single user
+		repository1.save(user);
 //		System.out.println("Saved User : "+user);
 //
 //
@@ -69,6 +71,18 @@ public class Lec8BootJpaExampleApplication
 		users3.forEach(System.out::println);
 		List<User> users4=repository1.findByNameContaining("Kumar");
 		users4.forEach(System.out::println);
+		List<User> users5=repository1.findByNameLike("%"+"Amit"+"%");
+		users5.forEach(System.out::println);
+		List<User> users10=repository1.findByNameLike("%"+"Vijay"+"%");
+		users10.forEach(System.out::println);
+		List<User> users6=repository1.findByAgeLessThan(50);
+		users6.forEach(System.out::println);
+		List<User> users7=repository1.findByAgeGreaterThanEqual(26);
+		users7.forEach(System.out::println);
+		List<User> users8=repository1.findByAgeIn(List.of(25,45,35,56));
+		users8.forEach(System.out::println);
+		List<User> users9=repository1.findByNameOrderByAgeAsc("Ankit Kumar");
+		users9.forEach(System.out::println);
 	}
 
 }

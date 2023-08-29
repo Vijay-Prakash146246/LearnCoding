@@ -14,18 +14,27 @@ public class User
     private String name;
     private  String city;
     private String status;
+    private  int age;
 
     public User()
     {
     }
 
-    public User(int id, String name, String city, String status) {
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public User(int id, String name, String city, String status, int age) {
         this.id = id;
         this.name = name;
         this.city = city;
         this.status = status;
+        this.age = age;
     }
-
     public int getId() {
         return id;
     }
