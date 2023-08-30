@@ -13,7 +13,7 @@ public class TestController
     @ResponseBody //for showing directly string as response
     public  String test()
     {
-        int a=40;
+        int a=50;
         int b=60;
         return "This is just for testing /t sum of a send b is : "+(a+b);
     }
