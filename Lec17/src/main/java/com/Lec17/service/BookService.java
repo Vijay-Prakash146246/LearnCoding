@@ -28,4 +28,11 @@ public class BookService
      book=   list.stream().filter(e-> e.getId()==id).findFirst().get();
      return book;
     }
+    //L19 @PostMapping
+    //adding the book
+    public  Book addBook(Book book)
+    {
+        list.add(book);
+        return book;
+    }
 }

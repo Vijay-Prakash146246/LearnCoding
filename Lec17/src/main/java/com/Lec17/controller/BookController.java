@@ -4,9 +4,7 @@ import com.Lec17.model.Book;
 import com.Lec17.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,5 +31,11 @@ private BookService bookService;
     public Book getBook(@PathVariable("id") int id)
     {
         return  this.bookService.getBookById(id);
+    }
+    //Lecture 19 @PostMapping
+    @PostMapping("/createBook")
+    public Book addBook(@RequestBody Book book)
+    {
+       return this.bookService.addBook(book);
     }
 }
