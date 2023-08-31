@@ -1,9 +1,18 @@
 package com.Lec17.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Book_Table")
 public class Book
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Book_Id")
     private  int id;
+    @Column(name = "Book_Title")
     private  String title;
+    @Column(name = "Book_Author")
     private String author;
 
     public Book() {
