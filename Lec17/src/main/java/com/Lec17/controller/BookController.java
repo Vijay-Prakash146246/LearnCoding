@@ -51,4 +51,11 @@ private BookService bookService;
         return "Sucessfully get Deleted";
     }
 
+    //L21 @PutMapping | Updating the Resource creating api using spring boot
+    //Update Book Handler
+    @PutMapping("/book/{id}")
+    public Book updateBook(@PathVariable("id")int id,@RequestBody Book book)
+    {
+        return this.bookService.updateBook(id,book);
+    }
 }
