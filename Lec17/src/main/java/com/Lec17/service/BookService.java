@@ -5,7 +5,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
- //creating fake service
+import java.util.stream.Collectors;
+
+//creating fake service
 @Component
 public class BookService
 {
@@ -34,5 +36,24 @@ public class BookService
     {
         list.add(book);
         return book;
+    }
+
+    //L20 @DeleteMapping | Deleting Resource REST API
+    //delete Boook
+    public void deleteBook(int id)
+    {
+//       list= list.stream().filter(book1 -> {
+//            if (book1.getId()!=id)
+//            {
+//                return true;
+//            }
+//            else
+//            {
+//                return false;
+//            }
+//        }).collect(Collectors.toList());
+
+        //or
+        list= list.stream().filter(book1 -> book1.getId()!=id).collect(Collectors.toList());
     }
 }

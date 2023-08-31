@@ -3,6 +3,7 @@ package com.Lec17.controller;
 import com.Lec17.model.Book;
 import com.Lec17.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,9 +34,21 @@ private BookService bookService;
         return  this.bookService.getBookById(id);
     }
     //Lecture 19 @PostMapping
+    //new book handler
     @PostMapping("/createBook")
     public Book addBook(@RequestBody Book book)
     {
        return this.bookService.addBook(book);
     }
+
+    //L20 @DeleteMapping | Deleting Resource REST API
+    //delete book handler
+    @DeleteMapping("/deleteBook/{id}")
+    @ResponseBody//for rest controller their is no need of it.
+    public String deleteBook(@PathVariable("id") int id)
+    {
+        this.bookService.deleteBook(id);
+        return "Sucessfully get Deleted";
+    }
+
 }
