@@ -11,7 +11,8 @@ public class Book
     private  int id;
     private  String title;
    // @OneToOne//every book has only one author unidirectional
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)//all related operation get performed automatically
+    //if you not  write this cascade = CascadeType.ALL then it will give forigen key exception
     private Author author;
 
     public Book() {
