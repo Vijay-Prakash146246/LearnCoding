@@ -1,5 +1,6 @@
 package com.Lect24.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,12 +13,26 @@ public class Author
     private String firstName;
     private  String lastName;
     private String language;
+    //for implementation of bidirectional mapping because book has author and author has book
+    @OneToOne(mappedBy = "author") //for not creating extra column mappedBy = "author"
+    //Here i think author act as a child and book as a parent
+    @JsonBackReference
+    private  Book book;
 
-    public Author(int autId, String firstName, String lastName, String language) {
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    public Author(int autId, String firstName, String lastName, String language,Book book) {
         this.autId = autId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.language = language;
+        this.book = book;
     }
 
     public Author() {

@@ -1,5 +1,6 @@
 package com.Lect24.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,6 +14,7 @@ public class Book
    // @OneToOne//every book has only one author unidirectional
     @OneToOne(cascade = CascadeType.ALL)//all related operation get performed automatically
     //if you not  write this cascade = CascadeType.ALL then it will give forigen key exception
+   @JsonManagedReference //we think book as a parent so we have required to manage author
     private Author author;
 
     public Book() {
