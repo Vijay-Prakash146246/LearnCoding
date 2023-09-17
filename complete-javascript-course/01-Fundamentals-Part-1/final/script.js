@@ -1,4 +1,5 @@
 
+alert("This part get completed");
 /*
 ////////////////////////////////////
 // Linking a JavaScript File
@@ -6,23 +7,29 @@ let js = "amazing";
 console.log(40 + 8 + 23 - 10);
 
 ////////////////////////////////////
-// Values and Variables
+// Values and Variables 
+//camel case convention generally
 console.log("Jonas");
 console.log(23);
-
+let firstName="Vijay";
 let firstName = "Matilda";
 
 console.log(firstName);
 console.log(firstName);
 console.log(firstName);
+let 3years=3; //not valid this variable it give syntax error
+//variable name only contain number letter and _
+//key word are not allow as variable name i.e. new,function..
+//but name is allowed but it does not good 
 
 // Variable name conventions
 let jonas_matilda = "JM";
 let $function = 27;
 
 let person = "jonas";
-let PI = 3.1415;
-
+//reserved for constant it means it does not get changed 
+let PI = 3.1415; 
+//this is suggested because it is more descriptive 
 let myFirstJob = "Coder";
 let myCurrentJob = "Teacher";
 
@@ -31,46 +38,76 @@ let job2 = "teacher";
 
 console.log(myFirstJob);
 
+
+
+
 ////////////////////////////////////
+//In java script every value
+ is either 
+//object or primitive type so here first we deal
+//with primitive type 
+
 // Data Types
-let javascriptIsFun = true;
-console.log(javascriptIsFun);
+// number, string:- in quote single or double,boolean
+//undefined not assign value to variable
+//null empty value
+//symbol : value unique  and not be changed 
+//BigInt: larger integer value
+
+
+//code comment 
+//by single line comment //
+//multiline comment /* write here in many line */
+/*
+// let javascriptIsFun = true;
+// console.log(javascriptIsFun);
 
 // console.log(typeof true);
-console.log(typeof javascriptIsFun);
+//console.log(typeof javascriptIsFun);
 // console.log(typeof 23);
 // console.log(typeof 'Jonas');
 
 javascriptIsFun = 'YES!';
 console.log(typeof javascriptIsFun);
 
-let year;
-console.log(year);
-console.log(typeof year);
+let year; //undefined value 
+console.log(year); //undefined 
+console.log(typeof year); //undefined 
 
 year = 1991;
 console.log(typeof year);
 
-console.log(typeof null);
+console.log(typeof null); // object so this is a bug 
+//it is regarded as a bug 
 
 ////////////////////////////////////
+//different way to declear variable in javascript 
 // let, const and var
+//let for it we reassign the value 
 let age = 30;
-age = 31;
+age = 31; //it is ok reassigne variable value 
 
+//const value can't we change  if we do then it give error
+//we can't declear empty const variable 
 const birthYear = 1991;
 // birthYear = 1990;
 // const job;
 
+//var old way to define vsariable 
+//let is block scope  and var is function scope 
+//reassign value is allowed 
 var job = 'programmer';
 job = 'teacher'
-
+ //without any data type but is not allowed 
+ //because it's scope is not clear
 lastName = 'Schmedtmann';
 console.log(lastName);
 
 ////////////////////////////////////
 // Basic Operators
 // Math operators
+const ageJonas = 2037 - 1991;
+const ageSarah = 2037 - 2018;
 const now = 2037;
 const ageJonas = now - 1991;
 const ageSarah = now - 2018;
@@ -81,6 +118,7 @@ console.log(ageJonas * 2, ageJonas / 10, 2 ** 3);
 
 const firstName = 'Jonas';
 const lastName = 'Schmedtmann';
+console.log(firstName + lastName);
 console.log(firstName + ' ' + lastName);
 
 // Assignment operators
@@ -102,14 +140,16 @@ console.log(now - 1991 > now - 2018);
 
 ////////////////////////////////////
 // Operator Precedence
+//check operator precedence table on MDN
 const now = 2037;
 const ageJonas = now - 1991;
 const ageSarah = now - 2018;
 
 console.log(now - 1991 > now - 2018);
 
-let x, y;
-x = y = 25 - 10 - 5; // x = y = 10, x = 10
+y = 25 - 10 - 5;  //left to right
+x = y = 25 - 10 - 5;  //10
+// x = y = 10, x = 10 //right to left =,= operator
 console.log(x, y);
 
 const averageAge = (ageJonas + ageSarah) / 2;
@@ -159,6 +199,7 @@ const year = 2037;
 const jonas = "I'm " + firstName + ', a ' + (year - birthYear) + ' year old ' + job + '!';
 console.log(jonas);
 
+//using template literal it is good practice 
 const jonasNew = `I'm ${firstName}, a ${year - birthYear} year old ${job}!`;
 console.log(jonasNew);
 
@@ -176,6 +217,7 @@ lines`);
 ////////////////////////////////////
 // Taking Decisions: if / else Statements
 const age = 15;
+//for adding emogi in window use command like (windoe+.)
 
 if (age >= 18) {
   console.log('Sarah can start driving license 🚗');
@@ -223,7 +265,7 @@ const heightJohn = 1.95;
 const BMIMark = massMark / heightMark ** 2;
 const BMIJohn = massJohn / (heightJohn * heightJohn);
 console.log(BMIMark, BMIJohn);
-
+//By using string literal
 if (BMIMark > BMIJohn) {
   console.log(`Mark's BMI (${BMIMark}) is higher than John's (${BMIJohn})!`)
 } else {
@@ -233,8 +275,9 @@ if (BMIMark > BMIJohn) {
 ////////////////////////////////////
 // Type Conversion and Coercion
 
-// type conversion
+// type conversion here we do manually 
 const inputYear = '1991';
+console.log(inputYear + 18); //199118
 console.log(Number(inputYear), inputYear);
 console.log(Number(inputYear) + 18);
 
@@ -243,24 +286,24 @@ console.log(typeof NaN);
 
 console.log(String(23), 23);
 
-// type coercion
+// type coercion here javascript do automatically 
 console.log('I am ' + 23 + ' years old');
-console.log('23' - '10' - 3);
+console.log('23' - '10' - 3); //10
 console.log('23' / '2');
 
 let n = '1' + 1; // '11'
-n = n - 1;
+n = n - 1; //10
 console.log(n);
 
 ////////////////////////////////////
 // Truthy and Falsy Values
 
-// 5 falsy values: 0, '', undefined, null, NaN
+// 5 falsy values are : 0, '', undefined, null, NaN
 console.log(Boolean(0));
 console.log(Boolean(undefined));
-console.log(Boolean('Jonas'));
-console.log(Boolean({}));
-console.log(Boolean(''));
+console.log(Boolean('Jonas'));//true
+console.log(Boolean({}));// true empty object
+console.log(Boolean(''));//false
 
 const money = 100;
 if (money) {
@@ -280,9 +323,10 @@ if (height) {
 // Equality Operators: == vs. ===
 const age = '18';
 if (age === 18) console.log('You just became an adult :D (strict)');
-
+//avoid loose equality operator to use
 if (age == 18) console.log('You just became an adult :D (loose)');
 
+//take inbput from user
 const favourite = Number(prompt("What's your favourite number?"));
 console.log(favourite);
 console.log(typeof favourite);
@@ -296,11 +340,14 @@ if (favourite === 23) { // 22 === 23 -> FALSE
 } else {
   console.log('Number is not 23 or 7 or 9')
 }
-
+//here is != losse version and !== is strict version
+//so prefer to use strict version always 
 if (favourite !== 23) console.log('Why not 23?');
 
 ////////////////////////////////////
 // Logical Operators
+//! not operator has more presedence than AND and OR
+
 const hasDriversLicense = true; // A
 const hasGoodVision = true; // B
 
@@ -373,6 +420,7 @@ if (scoreDolphins > scoreKoalas && scoreDolphins >= 100) {
 
 ////////////////////////////////////
 // The switch Statement
+//it will work on strict comparision
 const day = 'friday';
 
 switch (day) {
@@ -398,6 +446,7 @@ switch (day) {
     console.log('Not a valid day!');
 }
 
+//Here we are using strinct comparision
 if (day === 'monday') {
   console.log('Plan course structure');
   console.log('Go to coding meetup');
@@ -415,10 +464,12 @@ if (day === 'monday') {
 
 ////////////////////////////////////
 // Statements and Expressions
-3 + 4
+//experision because it produce a value
+3 + 4  
 1991
 true && false && !false
 
+//This is a statement 
 if (23 > 10) {
   const str = '23 is bigger';
 }
@@ -428,9 +479,11 @@ console.log(`I'm ${2037 - 1991} years old ${me}`);
 
 ////////////////////////////////////
 // The Conditional (Ternary) Operator
+
 const age = 23;
 // age >= 18 ? console.log('I like to drink wine 🍷') : console.log('I like to drink water 💧');
 
+//expression 
 const drink = age >= 18 ? 'wine 🍷' : 'water 💧';
 console.log(drink);
 
