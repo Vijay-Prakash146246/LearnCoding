@@ -292,6 +292,7 @@ console.log(n);//10
 */ 
 
 //===========================================================
+/*
 //Truthy and Falsy value
 //There are 5 falsy vaue in java Script : 0,"",undefined,null,NAN
 console.log(Boolean(0));//false
@@ -311,7 +312,7 @@ else
 {
      console.log('You should get a job!');
 }
-let height=0;
+let height=10;
 if(height)
 {
      console.log('YAY! Height is defined ');
@@ -320,4 +321,273 @@ else
 {
      console.log('Height is Undefined'); //this will execute
 }
+*/
 
+//==================================================================
+/*
+//Equality operator: ==(it is loose) vs ===(it is strict)
+//So strict eqaulity also check data type of variable and it must be same
+const age ='18';
+if(age===18) console.log('you just become an adult :D(Strict)');
+if(age==18) console.log('you just become an adult :D(Loose)');
+//Take input from user 
+const favourite=Number(prompt("What is your favourite number ?"));
+console.log(favourite);
+console.log(typeof favourite);//number
+if(favourite===23)
+{
+     console.log('Cool ! 23 is an amazing number!');
+}
+else if(favourite===7)
+{
+     console.log("7 is also a cool number ");
+}
+else if(favourite===9)
+{
+     console.log("9 is also a cool number");
+}
+else
+{
+     console.log("Number is not 23 or 7 or 9");
+}
+*/
+//================================================================
+/*
+//Logical operator 
+//Not operator !==(strict version) and !=(loose version)
+//So always prefer to use strict version of
+const favourite=Number(prompt("What is your favourite number ?"));
+if(favourite!==23)
+console.log('Why not 23 ?');
+//! NOT operator has higher precedence than AND and OR
+
+const hasDriversLicense=true;
+const hasGoodVision=true;
+console.log(hasDriversLicense && hasGoodVision);
+console.log(hasDriversLicense || hasGoodVision);
+console.log(!hasDriversLicense);
+if(hasDriversLicense && hasGoodVision)
+{
+     console.log('Vijay is able to derive!');
+}
+else
+{
+     console.log('Someone else should derive....');
+}
+const isTired=true;
+console.log(hasDriversLicense && hasGoodVision && isTired);
+if(hasDriversLicense && hasGoodVision && !isTired)
+{
+     console.log('Gopal is able to derive!');
+}
+else
+{
+     console.log('Someone else should derive....');
+}
+*/
+
+//================================================================
+
+//Coding challenge #3
+/*
+There are two gymnastics teams, Dolphins and Koalas. 
+They compete against each other 3 times. The winner 
+with the highest average score wins the a trophy!
+
+1. Calculate the average score for each team, using the 
+test data below
+2. Compare the team's average scores to determine the 
+winner of the competition, and print it to the console. 
+Don't forget that there can be a draw, so test for that 
+as well (draw means they have the same average score).
+
+3. BONUS 1: Include a requirement for a minimum score 
+of 100. With this rule, a team only wins if it has a 
+higher score than the other team, and the same time a 
+score of at least 100 points. HINT: Use a logical 
+operator to test for minimum score, as well as multiple 
+else-if blocks 😉
+4. BONUS 2: Minimum score also applies to a draw! 
+So a draw only happens when both teams have the same 
+score and both have a score greater or equal 100 points. 
+Otherwise, no team wins the trophy.
+
+TEST DATA: Dolphins score 96, 108 and 89. 
+Koalas score 88, 91 and 110
+TEST DATA BONUS 1: Dolphins score 97, 112 and 101. 
+Koalas score 109, 95 and 123
+TEST DATA BONUS 2: Dolphins score 97, 112 and 101. 
+Koalas score 109, 95 and 106
+
+GOOD LUCK 😀
+*/
+/*
+const scoreTeam1=(97+112+101)/3;
+const scoreTeam2=(109+95+106)/3;
+console.log(scoreTeam1,scoreTeam2);
+
+if(scoreTeam1 > scoreTeam2)
+{
+     console.log('Team_1 win the trophy 🏆');
+}
+else if(scoreTeam2 > scoreTeam1)
+{
+     console.log('Team_2 win the trophy 🏆');
+}
+else if(scoreTeam2 === scoreTeam1)
+{
+     console.log('🏆 Both win the trophy 🏆');
+}
+//Bonus 1
+const team1Score=(97+112+101)/3;
+const team2Score=(109+95+123)/3;
+if(team1Score > team2Score && team1Score>=100)
+{
+     console.log('Team_1 win the trophy 🏆');
+}
+else if(team2Score > team1Score && team2Score>=100)
+{
+     console.log('Team_2 win the trophy 🏆');
+}
+else if(team1Score === team2Score && team1Score>=100 && team2Score>=100)
+{
+     console.log('🏆 Both win the trophy 🏆');
+}
+else
+{
+     console.log('Ohh! Sorry No one win the trophy 😥😥');
+}
+*/
+
+//=========================================================================
+/*
+//The Switch statement 
+//The Switch statement basically work on strict comparision 
+//if we didn't provide the break; then it will 
+//print all statement when one condition get true
+let day="wednesday";
+switch(day)
+{
+     case "monday" :
+          console.log('Plan course structure');
+          console.log('Go to coding meetup');
+          break;
+     case "tuesday" :
+          console.log('Prepare theory video');
+          break;
+     case "wednesday" :
+     case "thursday" :
+          console.log('Write code Example');
+          break;
+     case "friday" :
+          console.log('Record Video');
+          break;
+     case "saturday" :
+     case "sunday" :
+          console.log('Enjoy the weekend!🤹‍♂️');
+          break;
+     case "default" :
+          console.log('Not a valid day!');
+}
+
+//Here we are using strict comparision 
+day="saturday";
+if(day==="monday")
+{
+     console.log('Plan course structure');
+     console.log('Go to coding meetup');
+}
+else if(day==="tuesday")
+{
+     console.log('Prepare theory video');
+}
+else if(day==="wednesday" || day==="thursday")
+{
+     console.log('Write code Example');
+}
+else if(day==="friday")
+{
+     console.log('Record Video');
+}
+else if(day==="saturday" || day==="sunday")
+{
+     console.log('Enjoy the weekend!🤹‍♂️');
+}
+else
+{
+     console.log('Not a valid day!');
+}
+*/
+
+
+//============================================================
+/*
+//Statement and Expression 
+//We know that the expression always produce a value 
+3+4;
+1991
+true && false && !false
+
+//This is a statement 
+if(23>12)
+{
+     const str = '23 is bigger';
+}
+const me="Vijay Prakash Singh.";
+console.log(`I am ${2037-1991} years old ${me}`);
+*/
+
+//================================================================
+/*
+// The Conditional(Ternary)Operator
+const age=13;
+age>=18?console.log("I like to drink wine 🍷"):console.log("I like to drink water 💧");
+
+//expression 
+const drink=age>=18?"Wine 🍷":"Water 💧";
+console.log(drink);
+
+let drink2;
+if(age>=18)
+{
+     drink2= "Wine 🍷";
+}
+else
+{
+     drink2= "Water 💧";
+}
+console.log(drink2);
+console.log(`I like to drink ${age>=18?"Wine 🍷":"Water 💧"}`);
+*/
+
+//==================================================================
+//Coding challenge #4
+/*
+Steven wants to build a very simple tip calculator for 
+whenever he goes eating in a resturant. In his country, 
+it's usual to tip 15% if the bill value is between 50 
+and 300. If the value is different, the tip is 20%.
+
+1. Your task is to caluclate the tip, depending on the 
+bill value. Create a variable called 'tip' for this. 
+It's not allowed to use an if/else statement 😅 
+(If it's easier for you, you can start with an 
+if/else statement, and then try to convert it to a 
+ternary operator!)
+2. Print a string to the console containing the bill 
+value, the tip, and the final value (bill + tip). 
+Example: 'The bill was 275, the tip was 41.25, and 
+the total value 316.25'
+
+TEST DATA: Test for bill values 275, 40 and 430
+
+HINT: To calculate 20% of a value, simply multiply 
+it by 20/100 = 0.2
+HINT: Value X is between 50 and 300, 
+if it's >= 50 && <= 300 😉
+
+GOOD LUCK 😀
+*/
+const bill=40;
+const tip=(bill<=300 && bill>=50)?bill*0.15:bill*0.2;
+console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill+tip}`);
