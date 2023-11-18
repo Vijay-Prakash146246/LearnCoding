@@ -52,6 +52,7 @@ Enter number
  }
  //Time complexity=(Ologn)
 
+//By using bitwise operators 
  class DecToBinConversion1
  {
 	 public static void main(String[]args)
@@ -71,3 +72,6 @@ Enter number
 		 System.out.println(str);
 	 }
  }
+ //Time complexity O(1)
+
+ //By using Binary Operators

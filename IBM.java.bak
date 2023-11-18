@@ -63,8 +63,8 @@ Enter number
 		//let consider sie of integer is 32 bits
 		for(int i =31;i>=0;i--)
 		 {
-			//int k=n>>i;
-			if((n&1) >0)
+			int k=n>>i;
+			if((k&1) >0)
 				str+=1;
 			str+=0;
 		 }
